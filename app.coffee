@@ -3,13 +3,13 @@
 bg = new BackgroundLayer
 	backgroundColor: "#CCC8C8"
 	
-settingsLayer = new Layer
+frameLayer = new Layer
 	width: 690
 	height: 590
 	backgroundColor: "transparant"
 
-settings = new Layer
-	superLayer: settingsLayer
+iconBaseLayer = new Layer
+	superLayer: frameLayer
 	borderRadius: 8
 	y: 170
 	x: 150
@@ -20,32 +20,30 @@ settings = new Layer
 	shadowColor: "rgba(0,0,0,0.6)"
 	shadowSpread: - 28
 
-gearbg = new Layer
+bgLayer = new Layer
 	backgroundColor: "#565457"
-	width: 170
-	height: 170
-	borderRadius: 99
-	superLayer: settings
-	y: 30
-	x: 100
+	image: bgLayerImage
+	width: 414
+	height: 257
+	superLayer: iconBaseLayer
+	y: -19
+	x: -19
 	
-gearTopLayer = new Layer
-	image: "images/topImage.png"
-	width: 150
-	height: 150
-	borderRadius: 99
-	superLayer: settings
-	y: 40
-	x: 110
+topLayer = new Layer
+	image: topLayerImage
+	width: 414
+	height: 257
+	superLayer: iconBaseLayer
+	y: -19
+	x: -19
 
-gearBottomLayer = new Layer
-	image: "images/bottomImage.png"
-	width: 100
-	height: 100
-	borderRadius: 99
-	superLayer: settings
-	y: 65
-	x: 135
+middleLayer = new Layer
+	image: middleLayerImage
+	width: 414
+	height: 257
+	superLayer: iconBaseLayer
+	y: -17
+	x: -17
 
 label = new Layer
 	width: 180
@@ -56,10 +54,10 @@ glow= new Layer
 	width: 800
 	height: 800
 	opacity: 0.4
-	borderRadius: '100%'
-	superLayer: settings
+	borderRadius: 99
+	superLayer: iconBaseLayer
 		
-settings.style =
+iconBaseLayer.style =
 	"background": "linear-gradient( #E2E0E0 0%, #979A9E 100%)"
 	
 label.style =
@@ -71,40 +69,40 @@ label.style =
 glow.style =
 	"background": "radial-gradient( rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%)"
 	
-# Position settingsLayer
-settingsLayer.center()
-settingsLayer.perspective = 100
+# Position frameLayer
+frameLayer.center()
+frameLayer.perspective = 100
 
 # Position Label
-label.html = "Settings" 
+label.html = iconLabel
 label.center()
 label.y += 150
 label.x -= 5
 
-# Place small cog behind the larger one
-gearBottomLayer.placeBehind(gearTopLayer)
+# Place middle layer behind top layer
+middleLayer.placeBehind(topLayer)
 
 # Animate icon
 bg.on Events.TouchMove, (event) ->
 	
 	delta =
-		x: settingsLayer.midX - Events.touchEvent(event).clientX
-		y: settingsLayer.midY - Events.touchEvent(event).clientY
+		x: frameLayer.midX - Events.touchEvent(event).clientX
+		y: frameLayer.midY - Events.touchEvent(event).clientY
 	
-	settings.rotationX = Utils.modulate delta.y, [0, settingsLayer.midX], [0, 1]
-	settings.rotationY = Utils.modulate delta.x, [0, settingsLayer.midY], [0, -1]
+	iconBaseLayer.rotationX = Utils.modulate delta.y, [0, frameLayer.midX], [0, 1]
+	iconBaseLayer.rotationY = Utils.modulate delta.x, [0, frameLayer.midY], [0, -1]
 	
-	settings.y = Utils.modulate -delta.y, [0, settingsLayer.midX], [170, 155]
-	settings.x = Utils.modulate -delta.x, [0, settingsLayer.midY], [150, 140]
+	iconBaseLayer.y = Utils.modulate -delta.y, [0, frameLayer.midX], [170, 155]
+	iconBaseLayer.x = Utils.modulate -delta.x, [0, frameLayer.midY], [150, 140]
 	
-	gearbg.y = Utils.modulate delta.y, [0, settingsLayer.midY], [30, 26]
-	gearbg.x = Utils.modulate delta.x, [0, settingsLayer.midX], [100, 92]
+	bgLayer.y = Utils.modulate delta.y, [0, frameLayer.midY], [-19, -14]
+	bgLayer.x = Utils.modulate delta.x, [0, frameLayer.midX], [-19, -14]
 	
-	gearTopLayer.y = Utils.modulate delta.y, [0, settingsLayer.midY], [40, 38]
-	gearTopLayer.x = Utils.modulate delta.x, [0, settingsLayer.midX], [110, 106]
+	topLayer.y = Utils.modulate delta.y, [0, frameLayer.midY], [-20, -15]
+	topLayer.x = Utils.modulate delta.x, [0, frameLayer.midX], [-20, -15]
 	
-	glow.x = Utils.modulate delta.x, [0, settings.midX], [-200, 200]
-	glow.y = Utils.modulate delta.y, [0, settings.midY], [-200, 200]
-	glow.opacity= Utils.modulate delta.x, [0, settingsLayer.midX], [0.3, 1]
+	glow.x = Utils.modulate delta.x, [0, iconBaseLayer.midX], [-200, 200]
+	glow.y = Utils.modulate delta.y, [0, iconBaseLayer.midY], [-200, 200]
+	glow.opacity= Utils.modulate delta.x, [0, frameLayer.midX], [0.3, 1]
 
 

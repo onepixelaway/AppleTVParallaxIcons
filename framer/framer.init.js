@@ -79,10 +79,6 @@ function showHomeScreenAlert() {
 	showAlert(html)
 }
 
-function loadProject() {
-	CoffeeScript.load("app.coffee")
-}
-
 function setDefaultPageTitle() {
 	// If no title was set we set it to the project folder name so
 	// you get a nice name on iOS if you bookmark to desktop.
