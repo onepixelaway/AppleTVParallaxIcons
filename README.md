@@ -12,7 +12,7 @@ I created it so I could play around with the depth values and get practice using
 1.	Just edit the index.html or any of the example files to point to your own images. 
 2.	You'll need to provide a bgLayer.png, a topLayer.png, and a middleLayer.png. I kept it to 3 layers to keep it simple. The dimensions should be 514x828.
 
-## From Apple
+## Resources from Apple
 
 Apple provides resources to generate and preview these icons, take a look at ["Creating Parallax Artwork"](https://developer.apple.com/library/prerelease/tvos/documentation/General/Conceptual/AppleTV_PG/CreatingParallaxArtwork.html), however, it requires a Mac and doesn't allow you to play around with the depth values.
 
