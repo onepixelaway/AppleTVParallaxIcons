@@ -18,4 +18,4 @@ Apple provides resources to generate and preview these icons, take a look at ["C
 
 ## Credits
 
-The original prototype was made by ["Robert van Klinken"](https://twitter.com/robertvklinken) that was listed ["on Dribbble"](https://dribbble.com/shots/2240003-Apple-TV-Settings-Icon-in-Framer). Edits to the prototype to make it easier to edit was made by ["Tareq Ismail"]. The Inbox icon was provided ["by John Mendard"](http://www.sketchappsources.com/free-source/911-icon-google-inbox-logo-sketch-freebie-resource.html). All other graphics and Sketch files are provided ["by Tareq Ismail"](http://www.dribbble.com/tareqismail)
+The original prototype was made by [Robert van Klinken](https://twitter.com/robertvklinken) and was adapted and modified by [Tareq Ismail] to make loading the images easier. The Inbox icon used in one of the examples was provided [by John Mendard](http://www.sketchappsources.com/free-source/911-icon-google-inbox-logo-sketch-freebie-resource.html). All other graphics and Sketch files were provided [by Tareq Ismail](http://www.dribbble.com/tareqismail)
