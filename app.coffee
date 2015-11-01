@@ -1,7 +1,7 @@
 
 # Components
 bg = new BackgroundLayer
-	backgroundColor: "#CCC8C8"
+	backgroundColor: "#e5e3e6"
 	
 frameLayer = new Layer
 	width: 690
